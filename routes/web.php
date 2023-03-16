@@ -23,14 +23,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/dashboard', [CustomerController::class, 'dashboard'])->name('dashboard');
+    Route::get('/all_products', [CustomerController::class, 'products'])->name('user_products');
+    Route::get('/catogery', [CustomerController::class, 'cust_catogery'])->name('cust_catogery');
+    Route::get('/catogery_product/{id}', [CustomerController::class, 'catogery_product'])->name('catogery_product');
+
 });
 
 
@@ -59,9 +62,12 @@ Route::middleware(['adminAuth'])->group(function(){
     Route::get('/delete_catogery/{id}', [CatogeryController::class, 'delete'])->name('catogery_delete');       
     Route::get('/view_catogery/{id}', [CatogeryController::class, 'View'])->name('view_catogery');
     
-    Route::get('/products', [ProductController::class, 'grid'])->name('products');
+    Route::get('/admin_products', [ProductController::class, 'grid'])->name('products');
     Route::get('/add_product', [ProductController::class, 'add'])->name('add_product');
     Route::post('/store_product', [ProductController::class, 'store'])->name('store_product');
+    Route::get('/edit_product/{id}', [ProductController::class, 'edit'])->name('edit_product');
+    Route::post('/update_product/{id}', [ProductController::class, 'update'])->name('update_product');
+    Route::get('/delete_product/{id}', [ProductController::class, 'delete'])->name('product_delete');       
 
 });
 

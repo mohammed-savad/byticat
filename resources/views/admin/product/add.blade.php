@@ -20,7 +20,7 @@
                             @csrf
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    <label for="name" class=" form-control-label"> Catogery Name</label>
+                                    <label for="name" class=" form-control-label"> Product Name</label>
                                 </div>
                                 <div class="col-12 col-md-9">
                                     <input type="text"  name="name" value="{{old('name')}}" id="name" placeholder="Enter Name..." class="form-control">
@@ -62,7 +62,7 @@
                                     <label for="price" class=" form-control-label">price</label>
                                 </div>
                                 <div class="col-12 col-md-9">
-                                    <input type="text" id="price" name="price" value="{{old('price')}}" placeholder="Enter price ..." class="form-control">
+                                    <input type="number" id="price" name="price" value="{{old('price')}}" placeholder="Enter price ..." class="form-control">
                                         @if ($errors->has('price'))
                                             <span class="error-feedback" role="alert">
                                             <strong>{{ $errors->first('price') }}</strong>
@@ -93,7 +93,7 @@
                                 <button type="submit" class="btn btn-primary btn-sm">
                                     <i class="fa fa-dot-circle-o"></i> Submit
                                 </button>
-                                <a href="{{route('catogeries')}}" type="button" class="btn btn-danger btn-sm">
+                                <a href="{{route('products')}}" type="button" class="btn btn-danger btn-sm">
                                     <i class="fa fa-ban"></i> cancel
                                 </a>
                             </div>

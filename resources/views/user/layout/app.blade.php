@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Login</title>
+    <title>@yield('title')</title>
 
     <!-- Fontfaces CSS-->
     <link href="../assets/css/font-face.css" rel="stylesheet" media="all">
@@ -39,32 +35,13 @@
 
 </head>
 
-<body class="animsition">
-    <div class="page-wrapper">
-        <div class="page-content--bge5">
-            <div class="container">
-                <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="#">
-                                <img src="../assets/images/icon/logo.png" alt="CoolAdmin">
-                            </a>
-                        </div>
-                        <div class="login-form"><br><br>
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <a  href="{{route('login')}}" type="button" class="au-btn au-btn--block au-btn--blue m-b-20"><center>sign in</center> </a>
-                                        <a href="{{route('register')}}"  type="button" class="au-btn au-btn--block au-btn--blue2"><center>sign up</center></a>
-                                    </div>
-                                </div>
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    @include('user.layout.header')
+    @yield('content')
+    @if(Session::has('success'))
 
-    </div>
+   
+    @endif
+
 
     <!-- Jquery JS-->
     <script src="../assets/vendor/jquery-3.2.1.min.js"></script>
@@ -94,4 +71,5 @@
 
 </html>
 <!-- end document-->
+
 

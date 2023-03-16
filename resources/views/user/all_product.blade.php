@@ -1,8 +1,10 @@
-@extends('admin.layout.app')
+@extends('user.layout.app')
 @section('title')
- Products
+All Products
 @endsection
 @section('content')  
+
+
 
 <div class="main-content">
     <div class="section__content section__content--p30">
@@ -11,25 +13,10 @@
                 <div class="col-md-12">
                     <div class="overview-wrap">
                         <h2 class="title-1">All Products</h2>
-                        <a href="{{route('add_product')}}"class="au-btn au-btn-icon au-btn--blue">
-                            <i class="zmdi zmdi-plus"></i>add Products</a>
                     </div>
                 </div>
             </div><br>
-                    @if ($message = Session::get('AD'))
-                        <div id="success-alert" class="alert alert-success">
-                            <strong>User added successfully...</strong>
-                        </div>
-                    @elseif ($message = Session::get('RM'))
-                        <div id="success-alert" class="alert alert-success">
-                            <strong>User removed successfully...</strong>
-                        </div>
-                    @elseif ($message = Session::get('UP'))
-                        <div id="success-alert" class="alert alert-success">
-                            <strong>User  updated successfully...</strong>
-                        </div>
-                    @endif
-            
+                  
                 </div>
 
               <section style="background-color: #eee;">
@@ -60,8 +47,7 @@
                           <div class="d-flex justify-content-between mb-2">
                             <p class="text-muted mb-0">{{ $data->discription }}</p>
                             <div class="ms-auto text-warning">
-                            <a href="{{route('edit_product',$data->id)}}"><i class="fa fa-edit"></i></a>
-                            <a onclick="return confirm('Are you sure?')" href="{{route('product_delete',$data->id)}}"><i class="fa fa-trash"></i></a>
+                            <a href="#"><i class="fa fa-cart-plus" style="font-size:22px;color:red"></i></a>
                             </div>
                           </div>
                         </div>
@@ -72,6 +58,7 @@
                   </div>
                 </div>
               </section>
+
 
 
 
